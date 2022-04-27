@@ -29,6 +29,8 @@ namespace Catalog.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> ProductoXId(string id)
         {
+            if (id is null) return BadRequest();
+
             var respuesta = await this._productRepo.ProductoXId(id);
             if(respuesta is null)
             {
@@ -41,7 +43,7 @@ namespace Catalog.API.Controllers
 
         [HttpGet("[action]/{marca}", Name = "ProductosXMarca")]
         [ProducesResponseType(typeof(IEnumerable<Product>), StatusCodes.Status200OK)]
-        public async Task<ActionResult> ProductosXMarca([FromQuery] string marca)
+        public async Task<ActionResult> ProductosXMarca(string marca)
         {
             var products = await this._productRepo.ProductoXMarca(marca);
             return Ok(products);

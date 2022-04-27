@@ -1,4 +1,5 @@
-﻿using Catalog.API.Entities;
+﻿using Catalog.API.Data.Seeding;
+using Catalog.API.Entities;
 using MongoDB.Driver;
 
 namespace Catalog.API.Data
@@ -19,7 +20,7 @@ namespace Catalog.API.Data
             string nombreColeccion = configuration.GetValue<string>("DatabaseSettings:CollectionName");
             Products = basedatos.GetCollection<Product>(nombreColeccion);
             // Seeding 
-           // CatalogContextSeed.SeedData(Products);
+            //ProductsSeed.Seed(Products);
         }
 
         public IMongoCollection<Product> Products { get; }
