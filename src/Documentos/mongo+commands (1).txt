@@ -1,8 +1,31 @@
+primero hacer un bajar la imagen de mongo
+docker pull mongo 
+
+levantar el contendor y te debe de dar un numero de contenedor
+docker run -d -p 27017:27017 --name shopping-mongo mongo
+
+para quitar todo
+
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+docker system prune
+
+- para instalar el mongolclient
+docker run -d -p 3000:3000 mongoclient/mongoclient
+
+
 1
 -- Now we can open interactive terminal for mongo
 
 docker exec -it shopping-mongo /bin/bash
 
+docker
+        
+
+  		EXPOSE 443
+
+      - ASPNETCORE_URLS=https://+:443;http://+:80
 
 2
 -- After that, we are able to run mongo commands. 
@@ -48,3 +71,25 @@ db.Products.remove({})
 show databases
 show collections
 db.Products.find({}).pretty()
+
+=============================  R E D I S ===============================
+
+docker run -d -p 6379:6379 --name aspnetrun-redis redis
+
+1
+-- Now we can open interactive terminal for redis
+
+docker exec -it aspnetrun-redis /bin/bash
+
+
+2
+-- After that, we are able to run redis commands. 
+Let me try with 
+
+redis-cli
+ping - PONG
+
+set key value
+get key
+set name mehmet
+get name
