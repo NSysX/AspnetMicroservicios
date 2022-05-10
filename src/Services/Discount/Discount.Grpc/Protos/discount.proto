@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "Discount.Grpc.Protos";
+
+service DescuentoProtoServicios{
+	rpc ObtenerDescuento (ObtenerDescuentoPeticion ) returns (CuponModelo);
+	rpc InsertarDescuento (InsertarDescuentoPeticion) returns (CuponModelo);
+	rpc ActualizarDescuento (ActualizarDescuentoPeticion) returns (CuponModelo);
+	rpc EliminarDescuento (EliminarDescuentoPeticion) returns (EliminarDescuentoRespuesta);
+}
+
+message ObtenerDescuentoPeticion{
+	string productName = 1;
+}
+
+message CuponModelo{
+	int32 id = 1;
+	string productName = 2;
+	string description = 3;
+	int32 amount = 4;
+}
+
+message InsertarDescuentoPeticion{
+	CuponModelo cupon = 1;
+}
+
+message ActualizarDescuentoPeticion{
+	CuponModelo cupon = 1;
+}
+
+message EliminarDescuentoPeticion{
+	string productName = 1;
+}
+
+message EliminarDescuentoRespuesta{
+	bool exitoso = 1;
+}

@@ -20,7 +20,7 @@ namespace Catalog.API.Data
             string nombreColeccion = configuration.GetValue<string>("DatabaseSettings:CollectionName");
             Products = basedatos.GetCollection<Product>(nombreColeccion);
             // Seeding 
-            // ProductsSeed.Seed(Products);
+            ProductsSeed.Seed(Products);
         }
 
         public IMongoCollection<Product> Products { get; }

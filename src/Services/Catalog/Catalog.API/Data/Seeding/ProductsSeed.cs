@@ -41,7 +41,19 @@ namespace Catalog.API.Data.Seeding
                     Costo = 149.9600m,
                     Precio = 225.0000m,
                     ImagePath = "YS4Z-3A-130B.png"
-                }
+                },
+                new Product()
+                {
+                  Id= "62705e6cdd08051e146fcf33",
+                  CodigoBase= "S2090-15",
+                  DescripcionCorta= "VALVULAS MOT",
+                  Descripcion= "VALVULA PARA MOTOR | GM 230 250 292 305 350",
+                  Marca= "MORESA",
+                  CodigoBarras= "NA",
+                  Costo= 39.66m,
+                  Precio= 64.00m,
+                  ImagePath= "S2090-15_MORESA_1.png"
+}
             };
         }
     }
